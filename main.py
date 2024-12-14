@@ -1,78 +1,44 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+from vpython import *
 
-# Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_earth = 5.972e24  # Mass of Earth (kg)
-M_moon = 7.342e22  # Mass of Moon (kg)
-R_earth_moon = 384400e3  # Distance between Earth and Moon (m)
-T_orbit = 27.3 * 24 * 3600  # Orbital period of the Moon (seconds)
+# Set up the scene
+scene = canvas(title="3D Solar System Simulation", width=800, height=600, background=color.black)
+scene.caption = "\nRotate: Drag with left mouse button\nZoom: Scroll mouse wheel\nPan: Right-click or drag with both mouse buttons.\n"
 
-# Initial conditions
-r_earth = np.array([0.0, 0.0])  # Earth at the origin
-r_moon = np.array([R_earth_moon, 0.0])  # Moon's initial position
-v_earth = np.array([0.0, 0.0], dtype=np.float64)  # Earth initially stationary (as float64)
-v_moon = np.array([0.0, 1022.0], dtype=np.float64)  # Moon's velocity (approx. in m/s) (as float64)
+# Create the Sun
+sun = sphere(pos=vector(0, 0, 0), radius=2, color=color.yellow, emissive=True)
+sun_label = label(pos=sun.pos, text="Sun", xoffset=0, yoffset=50, space=30, height=10, color=color.white, box=False)
 
-# Time parameters
-dt = 1000  # Time step (seconds)
-steps = 10000  # Number of simulation steps
+# Hover text for the Sun
+def on_mouse_move(evt):
+    picked_obj = scene.mouse.pick  # Detects the object the mouse is over
+    if picked_obj == sun:
+        scene.title = "The Sun: A massive ball of burning gas at the center of the solar system."
+    else:
+        scene.title = "3D Solar System Simulation"
 
-# Function to compute the gravitational force between the Earth and Moon
-def gravitational_force(r1, r2, m1, m2):
-    r = r2 - r1
-    dist = np.linalg.norm(r)
-    F = G * m1 * m2 / dist**2
-    return F * r / dist
+scene.bind("mousemove", on_mouse_move)
 
-# Initialize arrays for storing the positions
-earth_positions = [r_earth]
-moon_positions = [r_moon]
+# Function to create a planet
+class Planet:
+    def __init__(self, name, radius, texture, distance, orbital_speed):
+        self.body = sphere(pos=vector(distance, 0, 0), radius=radius, texture=texture)
+        self.orbit_distance = distance
+        self.angle = 0
+        self.orbital_speed = orbital_speed
+        self.label = label(pos=self.body.pos, text=name, xoffset=0, yoffset=50, space=30, height=10, color=vector(1, 1, 1), box=False)  # Use vector for white color
 
-# Simulation loop
-for _ in range(steps):
-    # Calculate forces
-    F = gravitational_force(r_earth, r_moon, M_earth, M_moon)
-    
-    # Update velocities
-    a_earth = F / M_earth
-    a_moon = -F / M_moon
-    
-    v_earth += a_earth * dt
-    v_moon += a_moon * dt
-    
-    # Update positions
-    r_earth += v_earth * dt
-    r_moon += v_moon * dt
-    
-    earth_positions.append(r_earth.copy())
-    moon_positions.append(r_moon.copy())
+    def update_position(self):
+        self.angle += self.orbital_speed
+        self.body.pos = vector(self.orbit_distance * cos(self.angle), 0, self.orbit_distance * sin(self.angle))
+        self.label.pos = self.body.pos
 
-earth_positions = np.array(earth_positions)
-moon_positions = np.array(moon_positions)
+# Create Earth with texture
+earth_texture = textures.earth  # Use built-in Earth texture
+earth = Planet("Earth", 0.6, earth_texture, 8, 0.02)
+planets = [earth]
 
-# Plotting the simulation using matplotlib
-fig, ax = plt.subplots()
-ax.set_aspect('equal')
-ax.set_xlim(-500e6, 500e6)
-ax.set_ylim(-500e6, 500e6)
-ax.set_xlabel('X position (m)')
-ax.set_ylabel('Y position (m)')
-
-# Earth and Moon plots
-earth_dot, = ax.plot([], [], 'go', markersize=10)  # Earth in green
-moon_dot, = ax.plot([], [], 'bo', markersize=5)   # Moon in blue
-
-# Function to update the plot in the animation
-def update(frame):
-    earth_dot.set_data((earth_positions[frame, 0], earth_positions[frame, 1]))
-    moon_dot.set_data((moon_positions[frame, 0], moon_positions[frame, 1]))
-    return earth_dot, moon_dot
-
-# Create the animation
-ani = FuncAnimation(fig, update, frames=range(0, steps, 10), interval=50, blit=True)
-
-# Save the animation to a file (e.g., MP4)
-ani.save('earth_moon_orbit.mp4', writer='ffmpeg', fps=30)
-
+# Animation loop
+while True:
+    rate(30)  # Lower the frame rate to 30 frames per second to reduce CPU load
+    for planet in planets:
+        planet.update_position()
