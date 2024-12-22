@@ -1,4 +1,5 @@
 import random
+import time
 
 def is_sorted(arr):
     for i in range(len(arr) - 1):
@@ -8,13 +9,20 @@ def is_sorted(arr):
 
 def bogosort(arr):
     attempts = 0
+    start_time = time.time()
     while not is_sorted(arr):
         random.shuffle(arr)
         attempts += 1
     print(f"Sorted after {attempts} shuffles!")
-    return arr
+    end_time = time.time()
+    runtime = end_time - start_time
+    return runtime
 
-arr = [3, 1, 4, 1, 5, 745, 34, 6, 8, 0]
-print("Original array:", arr)
-sorted_arr = bogosort(arr)
-print("Sorted array:", sorted_arr)
+times = []
+
+for i in range(0, 20):
+    arr = [random.randint(0, 7) for j in range(10)]
+    runtime = bogosort(arr)
+    times.append(runtime)
+    
+print(times)
