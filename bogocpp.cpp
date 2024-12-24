@@ -47,10 +47,18 @@ int main() {
 
     double runtime;
     vector<double> times;
-    for(int i = 0;i<20;i++){
+    for(int i = 0;i<100;i++){
         vector<int> arr = new_array();
         runtime = bogoSort(arr);
         times.push_back(runtime);
     }
+
+    double sum = 0;
+    for(int i=0;i<size(times);i++){
+        sum+=times[i];
+    }
+    double avg = sum/size(times);
+    printf("Average runtime: %.2f\n", avg);
+
     return 0;
 }
