@@ -5,11 +5,13 @@ def generate_and_compile_latex(latex_code, output_dir="output.tex", pdf_viewer="
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
+    latex = start + latex_code + end
+    print(latex)
     tex_file = os.path.join(output_dir, "output.tex")
     pdf_file = os.path.join(output_dir, "output.pdf")
     
     with open(tex_file, "w") as f:
-        f.write(latex_code)
+        f.write(latex)
     
     try:
         subprocess.run(
@@ -29,15 +31,10 @@ def generate_and_compile_latex(latex_code, output_dir="output.tex", pdf_viewer="
             subprocess.run(["open" if sys.platform == "darwin" else "xdg-open", pdf_file])
 
 # Example LaTeX code
-latex_code = r'''
+start = r'''
 \documentclass{article}
 \usepackage{amsmath}
 \begin{document}
-Hello, World! Here is some math: \( E = mc^2 \).
-\[
-\int_0^\infty e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}
-\]
-\end{document}
 '''
 
-generate_and_compile_latex(latex_code)
+end = r'''\end{document}'''

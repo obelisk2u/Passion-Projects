@@ -4,6 +4,7 @@ import os
 from pdf2image import convert_from_path
 from pytesseract import image_to_string
 from PIL import Image
+import latex
 
 client = OpenAI()
 
@@ -15,8 +16,9 @@ def sendtogpt(text):
             {"role": "user", "content": text}
         ]
     )
-    message = response.choices[0].message
-    print(message)
+    message = response.choices[0].message.content
+
+    latex.generate_and_compile_latex(message)
     #with open("response.txt", "w", encoding="utf-8") as file:
     #    file.write(message)
 
@@ -29,7 +31,6 @@ def regular():
         text = ""
         for page in reader.pages:
             text += page.extract_text()
-        print(text)
 
     sendtogpt(text)   
     with open("output.txt", "w", encoding="utf-8") as file:
