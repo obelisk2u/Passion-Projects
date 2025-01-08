@@ -11,11 +11,11 @@ response = client.chat.completions.create(
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": r"Give me the answers to each one of these problems. Prioritize correctness."},
+                {"type": "text", "text": r"Give me the answers to the first 4 of these problems. Prioritize correctness."},
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": "https://i.imgur.com/rVnkqtD.jpeg",
+                        "url": "https://preview.redd.it/history-paper-2-practice-questions-v0-l2r8kx1d7qw81.jpg?width=1080&crop=smart&auto=webp&s=3afd8de9112825d4aea95b9ef3da9d19bdcbb143",
                     },
                 },
             ],

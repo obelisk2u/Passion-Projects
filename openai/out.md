@@ -1,74 +1,15 @@
-Sure! Here are the solutions to the problems presented in the document:
+Here are brief answers to the first four questions related to the Cold War:
 
-### Solve for \( x \):
-2. **2 - 3 = 5 - x**
-   - \( x = 4 \)
+1. **Evaluate the significance of ideology in causing the Cold War.**
+   - Ideological differences, particularly between capitalism (led by the United States) and communism (led by the Soviet Union), were central to the origins of the Cold War. The U.S. aimed to contain the spread of communism, viewing it as a direct threat to democracy and capitalist values. Conversely, the Soviet Union sought to expand its communist ideology globally, leading to mutual suspicion and hostility.
 
-3. **\(\frac{1}{2}(x - 3) = 17 + 3(4 - x)\)**
-   - \( x = -1 \)
+2. **Evaluate the relative importance of US foreign policy in creating the Cold War.**
+   - U.S. foreign policy, especially the Truman Doctrine and the Marshall Plan, significantly influenced the Cold War's trajectory. The Truman Doctrine asserted U.S. commitment to contain communism, leading to military and economic aid to countries resisting Soviet influence. The Marshall Plan aimed at rebuilding war-torn Europe, effectively tying economic stability to capitalist democracy and further isolating the Soviet bloc.
 
-4. **\(\frac{x}{2} = -3\)**
-   - \( x = -6 \)
+3. **With reference to two Cold War leaders, each from a different region, evaluate their effects on the development of the Cold War.**
+   - In the United States, President Harry Truman's policies, including the Truman Doctrine, were pivotal in defining U.S. strategy against communism. In the Soviet Union, Joseph Stalin's aggressive expansionism in Eastern Europe intensified the Cold War, leading to the establishment of communist regimes in Poland, Hungary, and East Germany. Both leaders’ actions solidified the ideological divide and contributed to escalating tensions.
 
-### Multiply the indicated polynomials and simplify:
-5. **\(4(x - 1)(-3x + 2)\)** 
-   - \( -12x^2 + 8x + 12 \)
+4. **Evaluate the effectiveness of US foreign policy in achieving its goals during the Cold War.**
+   - The effectiveness of U.S. foreign policy varied over time. Initially, policies like containment and the Marshall Plan were effective in establishing a strong Western bloc and preventing the spread of communism in Western Europe. However, in places like Vietnam, U.S. efforts were less effective, leading to significant military and political setbacks. Overall, U.S. foreign policy successfully contained communism in Europe but faced challenges elsewhere.
 
-6. **\((x - 1)(x^2 + x + 1)\)**
-   - \( x^3 - 1 \)
-
-7. **\((x + 1)(x^2 + x + 1)\)**
-   - \( x^3 + 2x^2 + 2x + 1 \)
-
-8. **\((-2)(x + 2)\)**
-   - \( -2x - 4 \)
-
-9. **\(x^3 + 2x - (x^3 - 5x^2 + 4)\)**
-   - \( 5x^2 + 2x - 4 \)
-
-### Find the domain of the following functions:
-11. \( f(x) = 1 + \sqrt{x} \)
-   - **Domain:** \( [0, \infty) \)
-
-12. \( f(x) = \frac{1}{x} \)
-   - **Domain:** \( (-\infty, 0) \cup (0, \infty) \)
-
-13. \( f(x) = \frac{1}{\sqrt{x}} \)
-   - **Domain:** \( (0, \infty) \)
-
-14. \( f(x) = \sqrt{-1 + x} \)
-   - **Domain:** \( [1, \infty) \)
-
-15. \( f(x) = \frac{1}{1 + x^2} \)
-   - **Domain:** \( (-\infty, \infty) \)
-
-### Evaluate the function \( f(x) = x^2 - 3x + 4 \):
-16. Find and simplify \( f(3), f(0), f(-1), f(x^2 + 1) \):
-   - \( f(3) = 4 \)
-   - \( f(0) = 4 \)
-   - \( f(-1) = 8 \)
-   - \( f(x^2 + 1) = (x^2 + 1)^2 - 3(x^2 + 1) + 4 \)
-
-### Factor the following quadratics:
-17. **\(x^2 - x - 20\)**
-   - Factors: \( (x - 5)(x + 4) \)
-
-18. **\(x^2 - 10x + 21\)**
-   - Factors: \( (x - 7)(x - 3) \)
-
-19. **\(x^2 + 10x + 16\)**
-   - Factors: \( (x + 8)(x + 2) \)
-
-20. **\(x^2 - 8x - 105\)**
-   - Factors: \( (x - 15)(x + 7) \)
-
-21. **\(x^2 + 11x - 3\)**
-   - Factors: Not factorable over the integers.
-
-22. **\(-2x^2 + 7x + 15\)**
-   - Factors: Not easily factorable.
-
-23. **\(x^2 - 2\)**
-   - Factors: \( (x - \sqrt{2})(x + \sqrt{2}) \)
-
-Feel free to ask if you need explanations for any of the solutions!
+Feel free to ask for more detailed explanations or assistance with additional questions!
