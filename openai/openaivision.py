@@ -1,4 +1,6 @@
 from openai import OpenAI
+import re
+
 client = OpenAI()
 
 image_path = "./docs/algebra.jpg"
@@ -9,7 +11,7 @@ response = client.chat.completions.create(
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": r"Give me the answers to each one of these problems"},
+                {"type": "text", "text": r"Give me the answers to each one of these problems. Prioritize correctness."},
                 {
                     "type": "image_url",
                     "image_url": {
@@ -22,4 +24,5 @@ response = client.chat.completions.create(
     
 )
 
-print(response.choices[0].message.content)
+response=(response.choices[0].message.content)
+print(response)
