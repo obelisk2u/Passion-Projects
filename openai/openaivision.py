@@ -27,5 +27,5 @@ response = client.chat.completions.create(
 response=(response.choices[0].message.content)
 file_path = 'out.md'
 
-with open(file_path, 'w') as file:
+with open(file_path, 'w', encoding='UTF-8') as file:
     file.write(response)
